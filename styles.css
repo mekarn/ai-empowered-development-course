@@ -39,18 +39,19 @@ footer {
     color: #6b7280;
 }
 
-.todo-container {
+.container {
     max-width: 600px;
     margin: 0 auto;
 }
 
+/* Input section (Feature 1) */
 .input-section {
     display: flex;
     gap: var(--spacing);
     margin-bottom: 2rem;
 }
 
-#todoInput {
+.input-section input {
     flex: 1;
     padding: 0.75rem;
     border: 1px solid #d1d5db;
@@ -58,13 +59,13 @@ footer {
     font-size: 1rem;
 }
 
-#todoInput:focus {
+.input-section input:focus {
     outline: none;
     border-color: var(--color-primary);
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-#addBtn {
+.input-section button {
     padding: 0.75rem 1.5rem;
     background-color: var(--color-primary);
     color: white;
@@ -73,21 +74,52 @@ footer {
     cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
+    transition: background-color 0.2s;
 }
 
-#addBtn:hover {
+.input-section button:hover {
     background-color: #2563eb;
 }
 
-#addBtn:active {
+.input-section button:active {
     background-color: #1d4ed8;
 }
 
-#todoList {
+/* Filter buttons (Feature 2) */
+.filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background-color: #f3f4f6;
+    color: var(--color-text);
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    background-color: #e5e7eb;
+}
+
+.filter-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+/* Todo list (Feature 1) */
+.todoList {
     list-style: none;
 }
 
-#todoList li {
+.todo-item {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -96,26 +128,37 @@ footer {
     border-radius: 0.375rem;
     margin-bottom: 0.5rem;
     background-color: #f9fafb;
+    transition: background-color 0.2s;
 }
 
-#todoList input[type="checkbox"] {
+.todo-item:hover {
+    background-color: #f3f4f6;
+}
+
+.todo-item.completed {
+    opacity: 0.6;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #9ca3af;
+}
+
+.todo-checkbox {
+    flex-shrink: 0;
     width: 1.25rem;
     height: 1.25rem;
     cursor: pointer;
     accent-color: var(--color-primary);
 }
 
-#todoList li span {
+.todo-text {
     flex: 1;
     word-break: break-word;
 }
 
-#todoList li.completed span {
-    text-decoration: line-through;
-    color: #9ca3af;
-}
-
-.delete-btn {
+.todo-delete {
+    flex-shrink: 0;
     padding: 0.5rem 0.75rem;
     background-color: #ef4444;
     color: white;
@@ -124,12 +167,13 @@ footer {
     cursor: pointer;
     font-size: 0.875rem;
     font-weight: 500;
+    transition: background-color 0.2s;
 }
 
-.delete-btn:hover {
+.todo-delete:hover {
     background-color: #dc2626;
 }
 
-.delete-btn:active {
+.todo-delete:active {
     background-color: #b91c1c;
 }
