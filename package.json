@@ -1,0 +1,21 @@
+{
+  "name": "vibe-code-demo",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "description": "",
+  "devDependencies": {
+    "vite": "^7.3.1"
+  },
+  "dependencies": {
+    "vibe-kanban-web-companion": "^0.0.5"
+  }
+}
