@@ -72,7 +72,7 @@ Choose your review tool:
 - Visit [greptile.com](https://greptile.com)
 - Click "Connect Repository"
 - Select your GitHub account
-- Choose `vibe-code-demo` repository
+- Choose `ai-empowered-development-course` repository
 
 **Option B: CodeRabbit**
 - Visit [coderabbit.ai](https://coderabbit.ai)
@@ -139,7 +139,7 @@ The bot comments guide your review. Your judgment makes the final call.
    - Visit [greptile.com](https://greptile.com)
    - Click "Connect Repository"
    - Authenticate with GitHub
-   - Select your `vibe-code-demo` repository
+   - Select your `ai-empowered-development-course` repository
 
    **CodeRabbit** (for fast, focused feedback):
    - Visit [coderabbit.ai](https://coderabbit.ai)
