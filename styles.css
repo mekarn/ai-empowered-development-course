@@ -5,7 +5,7 @@
 }
 
 :root {
-    --color-primary: #ff8c00;
+    --color-primary: #3b82f6;
     --color-background: #fff;
     --color-text: #1f2937;
     --spacing: 1rem;
@@ -70,7 +70,7 @@ footer {
 .input-section input:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgb(255 140 0 / 10%);
+    box-shadow: 0 0 0 3px rgb(59 130 246 / 10%);
 }
 
 .input-section button {
@@ -87,11 +87,11 @@ footer {
 }
 
 .input-section button:hover {
-    background-color: #e67e00;
+    background-color: #2563eb;
 }
 
 .input-section button:active {
-    background-color: #c60;
+    background-color: #1d4ed8;
 }
 
 /* Filter buttons (Feature 2) */
@@ -253,11 +253,11 @@ footer {
 }
 
 .changelog-btn:hover {
-    background-color: #e67e00;
+    background-color: #2563eb;
 }
 
 .changelog-btn:active {
-    background-color: #c60;
+    background-color: #1d4ed8;
 }
 
 /* Changelog drawer */
@@ -321,7 +321,7 @@ footer {
 }
 
 .changelog-close-btn:hover {
-    color: #ff8c00;
+    color: #3b82f6;
 }
 
 .changelog-list {
