@@ -21,7 +21,7 @@ let changelog = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     init();
-    initVibeKanban();
+    // initVibeKanban();  // Temporarily disabled - companion has React hook errors
 });
 
 function init() {
@@ -90,7 +90,7 @@ function addTodo() {
     });
 
     input.value = '';
-    dateInput.value = '';
+    dateInput.value = getDefaultDueDate();
     addToChangelog('created', text);
     saveTodos();
     renderTodos();
