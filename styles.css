@@ -5,8 +5,8 @@
 }
 
 :root {
-    --color-primary: #3b82f6;
-    --color-background: #ffffff;
+    --color-primary: #ff8c00;
+    --color-background: #fff;
     --color-text: #1f2937;
     --spacing: 1rem;
 }
@@ -24,6 +24,12 @@ body {
 header {
     padding: var(--spacing);
     border-bottom: 1px solid #e5e7eb;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 main {
@@ -49,10 +55,12 @@ footer {
     display: flex;
     gap: var(--spacing);
     margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
 
 .input-section input {
     flex: 1;
+    min-width: 150px;
     padding: 0.75rem;
     border: 1px solid #d1d5db;
     border-radius: 0.375rem;
@@ -62,7 +70,7 @@ footer {
 .input-section input:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 0 3px rgb(255 140 0 / 10%);
 }
 
 .input-section button {
@@ -75,21 +83,30 @@ footer {
     font-size: 1rem;
     font-weight: 500;
     transition: background-color 0.2s;
+    white-space: nowrap;
 }
 
 .input-section button:hover {
-    background-color: #2563eb;
+    background-color: #e67e00;
 }
 
 .input-section button:active {
-    background-color: #1d4ed8;
+    background-color: #c60;
 }
 
 /* Filter buttons (Feature 2) */
+.filters-section {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .filters {
     display: flex;
     gap: 0.5rem;
-    margin-bottom: 2rem;
     flex-wrap: wrap;
 }
 
@@ -114,8 +131,31 @@ footer {
     border-color: var(--color-primary);
 }
 
+/* Sort button (Feature 3) */
+.sort-btn {
+    padding: 0.5rem 1rem;
+    background-color: #f3f4f6;
+    color: var(--color-text);
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.sort-btn:hover {
+    background-color: #e5e7eb;
+}
+
+.sort-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
 /* Todo list (Feature 1) */
-.todoList {
+.todo-list {
     list-style: none;
 }
 
@@ -135,13 +175,13 @@ footer {
     background-color: #f3f4f6;
 }
 
-.todo-item.completed {
-    opacity: 0.6;
+.todo-item.overdue {
+    border-left: 4px solid #ef4444;
+    background-color: rgb(239 68 68 / 5%);
 }
 
-.todo-item.completed .todo-text {
-    text-decoration: line-through;
-    color: #9ca3af;
+.todo-item.completed {
+    opacity: 0.6;
 }
 
 .todo-checkbox {
@@ -152,9 +192,30 @@ footer {
     accent-color: var(--color-primary);
 }
 
-.todo-text {
+.todo-content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.todo-text {
     word-break: break-word;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #9ca3af;
+}
+
+.todo-due-date {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.todo-item.overdue .todo-due-date {
+    color: #ef4444;
+    font-weight: 500;
 }
 
 .todo-delete {
@@ -176,4 +237,146 @@ footer {
 
 .todo-delete:active {
     background-color: #b91c1c;
+}
+
+/* Changelog button */
+.changelog-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.changelog-btn:hover {
+    background-color: #e67e00;
+}
+
+.changelog-btn:active {
+    background-color: #c60;
+}
+
+/* Changelog drawer */
+.changelog-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgb(0 0 0 / 50%);
+    display: none;
+    z-index: 999;
+}
+
+.changelog-backdrop.active {
+    display: block;
+}
+
+.changelog-drawer {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    bottom: 0;
+    width: 400px;
+    background-color: var(--color-background);
+    border-left: 1px solid #e5e7eb;
+    box-shadow: -4px 0 12px rgb(0 0 0 / 10%);
+    z-index: 1000;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.changelog-drawer.open {
+    right: 0;
+}
+
+.changelog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.changelog-header h2 {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.changelog-close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-text);
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.changelog-close-btn:hover {
+    color: #ff8c00;
+}
+
+.changelog-list {
+    list-style: none;
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing);
+}
+
+.changelog-entry {
+    padding: 1rem;
+    border-left: 4px solid #e5e7eb;
+    margin-bottom: 0.75rem;
+    background-color: #f9fafb;
+    border-radius: 0.375rem;
+}
+
+.changelog-entry.created {
+    border-left-color: #22c55e;
+}
+
+.changelog-entry.completed {
+    border-left-color: #3b82f6;
+}
+
+.changelog-entry.deleted {
+    border-left-color: #ef4444;
+}
+
+.changelog-entry-type {
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+
+.changelog-entry.created .changelog-entry-type {
+    color: #22c55e;
+}
+
+.changelog-entry.completed .changelog-entry-type {
+    color: #3b82f6;
+}
+
+.changelog-entry.deleted .changelog-entry-type {
+    color: #ef4444;
+}
+
+.changelog-entry-text {
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+    word-break: break-word;
+}
+
+.changelog-entry-time {
+    font-size: 0.75rem;
+    color: #6b7280;
 }

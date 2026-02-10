@@ -8,7 +8,10 @@
 </head>
 <body>
     <header>
-        <h1>My App</h1>
+        <div class="header-content">
+            <h1>My App</h1>
+            <button id="changelogBtn" class="changelog-btn">Changelog</button>
+        </div>
     </header>
 
     <main>
@@ -16,22 +19,36 @@
             <h1>My Todos</h1>
             <div class="input-section">
                 <input type="text" id="todoInput" placeholder="Add a new todo...">
+                <input type="datetime-local" id="dueDateInput" placeholder="Due date (optional)">
                 <button id="addBtn">Add</button>
             </div>
 
-            <div class="filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="active">Active</button>
-                <button class="filter-btn" data-filter="completed">Completed</button>
+            <div class="filters-section">
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+                <button id="sortBtn" class="sort-btn" title="Sort by due date">↑ Due Date</button>
             </div>
 
-            <ul class="todoList" id="todoList"></ul>
+            <ul class="todo-list" id="todoList"></ul>
         </div>
     </main>
 
     <footer>
         <p>&copy; 2026</p>
     </footer>
+
+    <!-- Changelog Drawer -->
+    <div id="changelogBackdrop" class="changelog-backdrop"></div>
+    <div id="changelogDrawer" class="changelog-drawer">
+        <div class="changelog-header">
+            <h2>Changelog</h2>
+            <button id="changelogCloseBtn" class="changelog-close-btn">×</button>
+        </div>
+        <ul id="changelogList" class="changelog-list"></ul>
+    </div>
 
     <script type="module" src="/main.js"></script>
 </body>
