@@ -1,5 +1,5 @@
 import { VibeKanbanWebCompanion } from 'vibe-kanban-web-companion';
-import { format, isPast, isSameDay, parseISO, startOfDay } from 'date-fns';
+import { addDays, format, isPast, isSameDay, parseISO, set, startOfDay } from 'date-fns';
 
 // Todos array (Feature 1)
 let todos = [];
@@ -32,6 +32,10 @@ function init() {
     // Wire up add button
     const addBtn = document.getElementById('addBtn');
     const todoInput = document.getElementById('todoInput');
+    const dateInput = document.getElementById('dueDateInput');
+
+    // Set default due date to tomorrow at 5pm
+    dateInput.value = getDefaultDueDate();
 
     addBtn.addEventListener('click', addTodo);
     todoInput.addEventListener('keypress', (e) => {
@@ -238,6 +242,12 @@ function isOverdue(dateString) {
     } catch (error) {
         return false;
     }
+}
+
+function getDefaultDueDate() {
+    const tomorrow = addDays(new Date(), 1);
+    const tomorrowAt5pm = set(tomorrow, { hours: 17, minutes: 0, seconds: 0, milliseconds: 0 });
+    return format(tomorrowAt5pm, 'yyyy-MM-dd\'T\'HH:mm');
 }
 
 // Utility function to escape HTML
