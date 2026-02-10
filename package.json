@@ -5,9 +5,9 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "npm run dev:css && npm run dev:js",
+    "build": "npm run build:css && npm run build:js",
+    "preview": "npm run preview:css && npm run preview:js",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint main.js",
     "lint:css": "stylelint styles.css",
